@@ -1,0 +1,77 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 40px;
+    color: #5a5a5a;
+}
+
+/* 下面是左侧导航栏的代码 */
+.sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #ddd;
+    border-right: 1px solid #eee;
+}
+
+.nav-sidebar {
+    margin-right: -21px;
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+
+.main {
+    padding: 20px;
+}
+
+.main .page-header {
+    margin-top: 0;
+}
+.child {
+    margin-left: 30px;
+}
+.hidden{
+    display: none;
+}
+.show{
+    display: block;
+}
+.selected{
+    color: darkseagreen;
+}
+.unSelected{
+    color: #66afe9;
+}
+
+.fixed-table-pagination{
+    text-align: right;
+}
+.dropdown-item{
+    display: block;
+    text-align: center;
+
+}
+.dropdown-menu{
+    width: 69px;
+}
+
+.pagination-detail {
+    float: left;
+}

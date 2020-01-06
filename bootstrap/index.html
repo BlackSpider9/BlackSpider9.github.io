@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>客户管理系统</title>
+    <script type="application/javascript" src="js/component/head.js"></script>
+
+    <script type="application/javascript">
+       var page = function() {
+           var container = "#navigation";
+           return {
+               go:function(e) {
+                   var selected = $(e);
+                   var isParent = false;
+                   if(selected.parent().hasClass("parent")) {
+                       isParent = true;
+                   }
+                   if(isParent) {
+                       var menus = $(container).find("li");
+                       var isShow = false;
+                       if( $(selected).parent().hasClass("active")) {
+                           $(selected).parent().removeClass("active");
+                       }else{
+                           $.each(menus,function(k,v){
+                               $(v).removeClass("active");
+                           });
+                           $(selected).parent().addClass("active");
+                           isShow = true;
+                       }
+
+                       var children = selected.parent().find("ul");
+                       $.each(children,function(k,v){
+                           if(isShow) {
+                               $(v).removeClass("hidden");
+                               $(v).addClass("show");
+                           }else{
+                               $(v).removeClass("show");
+                               $(v).addClass("hidden");
+                           }
+
+                       });
+                       var selectedParent = selected.parent();
+                       var lis = selectedParent.siblings("li");
+                       $.each(lis,function(k,v){
+                            var childParent = $(v).find("*[class='child']:eq(0)").parent();
+                            childParent.removeClass("show");
+                            childParent.addClass("hidden");
+                       });
+
+                   }
+
+                   if(!isParent) {
+                       selected.removeClass("unSelected");
+                       selected.addClass("selected");
+                       var item = selected.parent();
+                       var lis =  item.siblings("li");
+                       $.each(lis, function(k,v) {
+                           $(v).find("a:eq(0)").addClass("unSelected");
+                           $(v).find("a:eq(0)").removeClass("selected");
+                       });
+                   }
+                   page.load(selected);
+
+               },
+               load:function(e){
+                   var url = $(e).attr("url");
+                   $('#pageInfo').load(url, function() {
+                       console.log("===============>"+url+'已加载');
+                   });
+               },
+               test:function(){
+                  var result = page.getMenuData();
+                  var data = result.data;
+                  $.each(data,function(k,v) {
+
+                  });
+               },
+               getMenuData:function() {
+//                   $.ajax({
+//                       url: "/menu",//json文件位置
+//                       type: "GET",//请求方式为get
+//                       dataType: "json", //返回数据格式为json
+//                       success: function(data) {//请求成功完成后要执行的方法
+//                          alert(JSON.stringify(data))
+//                       }
+//                   })
+                   var data = {
+                       "data" : [
+                           {
+                               "isChild":"true",
+                               "name":"首页",
+                               "url":""
+                           },
+                           {
+                               "isChild":"true",
+                               "name":"员工管理",
+                               "url":""
+                           },
+                           {
+                               "isChild":"true",
+                               "name":"开卡管理",
+                               "url":""
+                           },
+                           {
+                               "isChild":"true",
+                               "name":"设置",
+                               "url":""
+                           },
+                           {
+                               "isChild":"帮助",
+                               "url":""
+                           }
+                       ]
+                   };
+                   return data;
+               }
+           }
+       }();
+        function loginOut() {
+            top.location.pathname = 'bootstrap/welcome.html'
+        }
+
+    </script>
+
+</head>
+
+<body>
+<!--下面是顶部导航栏的代码-->
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">客户管理系统</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#"  onclick="page.load(this)" url="page/summary/summary.html">首页</a></li>
+                <li><a href="#">帮助</a></li>
+            </ul>
+            <ul class="navbar-form navbar-right">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;font-size: 15px;text-decoration: none;line-height: 200%">最近登陆时间:2019-06-12&nbsp;&nbsp;&nbsp;当前用户：小明<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" onclick="loginOut()">退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" style="color: white"></a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<!—自适应布局-->
+<div class="container-fluid">
+    <div class="row">
+        <!—左侧导航栏-->
+
+        <div class="col-sm-3 col-md-2 sidebar" id="navigation">
+            <!--<ul class="nav nav-sidebar">-->
+                <!--<li class="active parent" ><a href="#" onclick="page.go(this)" url="page/summary/summary.html">首页</a></li>-->
+            <!--</ul>-->
+            <ul class="nav nav-sidebar" >
+                <li class="parent">
+                    <a  href="#" onclick="page.go(this)" >会员管理</a>
+                    <ul class="nav nav-sidebar" style="display: none">
+                        <li class="child"><a href="#" onclick="page.go(this)" url="page/memberManage.html">会员信息</a></li>
+                        <li class="child"><a href="#" onclick="page.go(this)"  url="page/salaryCard.html">员工开卡管理</a></li>
+                    </ul>
+                </li>
+                <li class="parent"><a href="#" onclick="page.go(this)"  url="page/affordSalary.html">发薪管理</a></li>
+                <li class="parent"><a href="#" onclick="page.go(this)"  url="page/salaryDetail.html">工资条管理</a></li>
+            </ul>
+        </div>
+        <!—右侧管理概述-->
+        <div  class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div id="pageInfo" class="col-sm-12">
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
+<script>
+    $(function(){
+        function indexInit() {
+            $('#pageInfo').load("page/summary/summary.html", function() {
+                console.log("===============>"+url+'已加载');
+            });
+        };
+        indexInit();
+
+    });
+</script>
+
+
+

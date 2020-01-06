@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-sm-12">
+    <div class="col-sm-12" style="margin-bottom: 30px;padding-left: 0px;margin-left: 0px;">
+        <div class="col-sm-3" style="padding-left: 0px;">
+            <div class="input-group">
+                <span class="input-group-addon" style="background-color: lightgrey">会员名称</span>
+                <input class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-3" style="padding-left: 0px;">
+            <div class="input-group">
+                <span class="input-group-addon" style="background-color: lightgrey">会员类型</span>
+                <select class="form-control">
+                    <option value="-1" selected> 请选择</option>
+                    <option value="1" selected>黄金会员</option>
+                    <option value="2" selected>白银会员</option>
+                    <option value="3" selected>青铜会员</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-3" style="padding-left: 0px;">
+            <div class="input-group">
+                <span class="input-group-addon" style="background-color: lightgrey">会员号</span>
+                <input class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12" style="margin-bottom: 30px;padding-left: 0px;margin-left: 0px;">
+        <button class="btn btn-primary"><span class="glyphicon glyphicon-search"></span>查询</button>
+    </div>
+    <div class="col-sm-12" style="margin-bottom: 30px;padding-left: 0px;margin-left: 0px;">
+        <table class="table table-striped table-bordered table-hover" id="tableL01"></table>
+    </div>
+</div>
+<script>
+
+    var table = function(){
+        return {
+            init:function(options){
+                $('#tableL01').bootstrapTable('destroy');
+                $('#tableL01').bootstrapTable(options)
+            }
+        }
+    }();
+
+    var memberTypeFMT = function (value) {
+        var str = '';
+        if(value == 1){
+            str = "黄金会员"
+        }
+        if(value == 2){
+            str = "白银会员"
+        }
+        if(value == 3){
+            str = "青铜会员"
+        }
+        return str;
+    }
+
+    var recorderFMT = function(value, row){
+        var htmls = '<button class="btn btn-success" onclick="showDetail(\''+JSON.stringify(row)    +'\')">详情</button>'
+        return htmls;
+    }
+
+    function showDetail(data) {
+        alert(JSON.stringify(data));
+    }
+    $(function () {
+        table.init({
+            columns: [
+                {
+                    checkbox:true
+                },
+                {
+                    field: 'userName',
+                    title: '姓名',
+                    sortable: true
+                },
+                {
+                    field: 'mobile',
+                    title: '手机号',
+                    sortable: true
+                },
+                {
+                    field: 'memberNo',
+                    title: '会员号',
+                    sortable: true
+                },
+                {
+                    field: 'memberType',
+                    title: '会员类型',
+                    sortable: true,
+                    formatter:memberTypeFMT
+                },
+                {
+                    field: 'remain',
+                    title: '剩余积分',
+                    sortable: true
+                },
+
+                {
+                    field: 'remark',
+                    title: '备注',
+                    sortable: true
+                },
+                {
+                    field: 'consumeRecord',
+                    title: '消费记录',
+                    sortable: true,
+                    formatter:recorderFMT
+                }
+            ],  //表头
+            data:[
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"2",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"3",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"2",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"2",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"3",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"2",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"2",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"3",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"2",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"1",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"2",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"2",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"2",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"2",remain:"789",remark:"dkdlsl"},
+                {userName:"小明",mobile:"15178432960",memberNo:"hdHd203283012121x",memberType:"3",remain:"789",remark:"dkdlsl"},
+
+            ], //通过ajax返回的数据
+            width:300,
+            method: 'get',
+            pageSize: 10, //每页3条
+            pageNumber: 1,  //第1页
+            pageList: [[10],[25],100],   //在使用过程中根据情况调整每页条数.虽然你现在定义的每页3条，但你可以随时调整为10条或25条。
+            cache: false,   //不缓存
+            striped: true,
+            pagination: true,
+            sidePagination: 'client',
+            search: false,
+            showExport: false,
+            showFooter: true,
+            showColumns: false,                  //是否显示所有的列
+            showRefresh: false,                  //是否显示刷新按钮
+            // exportTypes: ['csv', 'txt', 'xml'],
+            clickToSelect: true
+        });
+    });
+</script>
+</body>
+</html>
