@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>¿Í»§¹ÜÀíÏµÍ³</title>
+    <title>å®¢æˆ·ç®¡ç†ç³»ç»Ÿ</title>
     <script type="application/javascript" src="js/component/head.js"></script>
 
     <script type="application/javascript">
@@ -67,7 +67,7 @@
                load:function(e){
                    var url = $(e).attr("url");
                    $('#pageInfo').load(url, function() {
-                       console.log("===============>"+url+'ÒÑ¼ÓÔØ');
+                       console.log("===============>"+url+'å·²åŠ è½½');
                    });
                },
                test:function(){
@@ -79,10 +79,10 @@
                },
                getMenuData:function() {
 //                   $.ajax({
-//                       url: "/menu",//jsonÎÄ¼şÎ»ÖÃ
-//                       type: "GET",//ÇëÇó·½Ê½Îªget
-//                       dataType: "json", //·µ»ØÊı¾İ¸ñÊ½Îªjson
-//                       success: function(data) {//ÇëÇó³É¹¦Íê³ÉºóÒªÖ´ĞĞµÄ·½·¨
+//                       url: "/menu",//jsonæ–‡ä»¶ä½ç½®
+//                       type: "GET",//è¯·æ±‚æ–¹å¼ä¸ºget
+//                       dataType: "json", //è¿”å›æ•°æ®æ ¼å¼ä¸ºjson
+//                       success: function(data) {//è¯·æ±‚æˆåŠŸå®Œæˆåè¦æ‰§è¡Œçš„æ–¹æ³•
 //                          alert(JSON.stringify(data))
 //                       }
 //                   })
@@ -90,26 +90,26 @@
                        "data" : [
                            {
                                "isChild":"true",
-                               "name":"Ê×Ò³",
+                               "name":"é¦–é¡µ",
                                "url":""
                            },
                            {
                                "isChild":"true",
-                               "name":"Ô±¹¤¹ÜÀí",
+                               "name":"å‘˜å·¥ç®¡ç†",
                                "url":""
                            },
                            {
                                "isChild":"true",
-                               "name":"¿ª¿¨¹ÜÀí",
+                               "name":"å¼€å¡ç®¡ç†",
                                "url":""
                            },
                            {
                                "isChild":"true",
-                               "name":"ÉèÖÃ",
+                               "name":"è®¾ç½®",
                                "url":""
                            },
                            {
-                               "isChild":"°ïÖú",
+                               "isChild":"å¸®åŠ©",
                                "url":""
                            }
                        ]
@@ -127,7 +127,7 @@
 </head>
 
 <body>
-<!--ÏÂÃæÊÇ¶¥²¿µ¼º½À¸µÄ´úÂë-->
+<!--ä¸‹é¢æ˜¯é¡¶éƒ¨å¯¼èˆªæ çš„ä»£ç -->
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -138,20 +138,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">¿Í»§¹ÜÀíÏµÍ³</a>
+            <a class="navbar-brand" href="#">å®¢æˆ·ç®¡ç†ç³»ç»Ÿ</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#"  onclick="page.load(this)" url="page/summary/summary.html">Ê×Ò³</a></li>
-                <li><a href="#">°ïÖú</a></li>
+                <li class="active"><a href="#"  onclick="page.load(this)" url="page/summary/summary.html">é¦–é¡µ</a></li>
+                <li><a href="#">å¸®åŠ©</a></li>
             </ul>
             <ul class="navbar-form navbar-right">
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;font-size: 15px;text-decoration: none;line-height: 200%">×î½üµÇÂ½Ê±¼ä:2019-06-12&nbsp;&nbsp;&nbsp;µ±Ç°ÓÃ»§£ºĞ¡Ã÷<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;font-size: 15px;text-decoration: none;line-height: 200%">æœ€è¿‘ç™»é™†æ—¶é—´:2019-06-12&nbsp;&nbsp;&nbsp;å½“å‰ç”¨æˆ·ï¼šå°æ˜<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#" onclick="loginOut()">ÍË³ö</a></li>
+                        <li><a href="#" onclick="loginOut()">é€€å‡º</a></li>
                     </ul>
                 </li>
             </ul>
@@ -163,28 +163,28 @@
     </div>
 </nav>
 
-<!¡ª×ÔÊÊÓ¦²¼¾Ö-->
+<!â€”è‡ªé€‚åº”å¸ƒå±€-->
 <div class="container-fluid">
     <div class="row">
-        <!¡ª×ó²àµ¼º½À¸-->
+        <!â€”å·¦ä¾§å¯¼èˆªæ -->
 
         <div class="col-sm-3 col-md-2 sidebar" id="navigation">
             <!--<ul class="nav nav-sidebar">-->
-                <!--<li class="active parent" ><a href="#" onclick="page.go(this)" url="page/summary/summary.html">Ê×Ò³</a></li>-->
+                <!--<li class="active parent" ><a href="#" onclick="page.go(this)" url="page/summary/summary.html">é¦–é¡µ</a></li>-->
             <!--</ul>-->
             <ul class="nav nav-sidebar" >
                 <li class="parent">
-                    <a  href="#" onclick="page.go(this)" >»áÔ±¹ÜÀí</a>
+                    <a  href="#" onclick="page.go(this)" >ä¼šå‘˜ç®¡ç†</a>
                     <ul class="nav nav-sidebar" style="display: none">
-                        <li class="child"><a href="#" onclick="page.go(this)" url="page/memberManage.html">»áÔ±ĞÅÏ¢</a></li>
-                        <li class="child"><a href="#" onclick="page.go(this)"  url="page/salaryCard.html">Ô±¹¤¿ª¿¨¹ÜÀí</a></li>
+                        <li class="child"><a href="#" onclick="page.go(this)" url="page/memberManage.html">ä¼šå‘˜ä¿¡æ¯</a></li>
+                        <li class="child"><a href="#" onclick="page.go(this)"  url="page/salaryCard.html">å‘˜å·¥å¼€å¡ç®¡ç†</a></li>
                     </ul>
                 </li>
-                <li class="parent"><a href="#" onclick="page.go(this)"  url="page/affordSalary.html">·¢Ğ½¹ÜÀí</a></li>
-                <li class="parent"><a href="#" onclick="page.go(this)"  url="page/salaryDetail.html">¹¤×ÊÌõ¹ÜÀí</a></li>
+                <li class="parent"><a href="#" onclick="page.go(this)"  url="page/affordSalary.html">å‘è–ªç®¡ç†</a></li>
+                <li class="parent"><a href="#" onclick="page.go(this)"  url="page/salaryDetail.html">å·¥èµ„æ¡ç®¡ç†</a></li>
             </ul>
         </div>
-        <!¡ªÓÒ²à¹ÜÀí¸ÅÊö-->
+        <!â€”å³ä¾§ç®¡ç†æ¦‚è¿°-->
         <div  class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div id="pageInfo" class="col-sm-12">
 
@@ -204,7 +204,7 @@
     $(function(){
         function indexInit() {
             $('#pageInfo').load("page/summary/summary.html", function() {
-                console.log("===============>"+url+'ÒÑ¼ÓÔØ');
+                console.log("===============>"+url+'å·²åŠ è½½');
             });
         };
         indexInit();
