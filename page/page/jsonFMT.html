@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue test</title>
+<textarea id="jsonStrEl" style="display:block" cols="160" rows="10">
+	
+</textarea>
+<button onclick="jsonFMT()" style="border-radius: 5px;background-color: lightblue;opacity: 70%;color:white;border:0px solid white;focuse: point;">format JSON</button>
+&nbsp;&nbsp;
+<button onclick="copy()" style="border-radius: 5px;background-color: lightblue;opacity: 70%;color:white;border:0px solid white;focuse: point;">复制</button>
+<pre id="jsonShowContainer" style="background-color:black;color: #05d205;height:280px;overflow: auto;font-weight: bolder;">
+
+</pre>
+
+<script type="text/javascript">
+		var vObject = new Vue({
+			"el":"#userInfoCard",
+			"data":{
+				"name":"小明",
+				"tel":"137*****534",
+				"hobby":"篮球"
+			},
+			methods:{
+
+			}
+		});
+		function jsonFMT() {
+			var jsonStr = document.getElementById("jsonStrEl").value;
+			var jsonFMTStr= JSON.stringify(eval("("+jsonStr+")"), null, 2);
+			console.log(jsonFMTStr);
+			 document.getElementById("jsonShowContainer").innerHTML = jsonFMTStr;
+			
+		}
+		function copy() {
+			var textarea = document.createElement("textarea");
+			document.body.appendChild(textarea);
+			textarea.value=document.getElementById("jsonShowContainer").innerHTML;
+			textarea.select();
+			document.execCommand('copy');
+			document.body.removeChild(textarea);
+		}
+	</script>
+</body>
+</html>
